@@ -24,7 +24,7 @@ const Card = ({id, name, icon, suspended, status, onPress}: CardProps) => {
           </Badge>
         </View>
         {icon.fileName ? (
-          <Ionicons name="leaf-outline" size={68} style={Styles.iconStyle} />
+          <Ionicons name="leaf-outline" size={58} style={Styles.iconStyle} />
         ) : null}
       </View>
     </TouchableOpacity>

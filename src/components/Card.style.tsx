@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const Styles = StyleSheet.create({
   containerStyle: {
-    height: 122,
+    height: 94,
     alignSelf: 'stretch',
     backgroundColor: colors.app.TRIP_CARD_BACKGROUND,
     borderRadius: 4,
