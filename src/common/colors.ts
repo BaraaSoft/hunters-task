@@ -1,6 +1,6 @@
 export const colors = {
   main: {
-    primary: '#009BF0',
+    primary: '#4CAF50', //'#009BF0',
     white: '#FFFFFF',
     gray: '#919191',
     grey2: '#8C8C8C',
@@ -14,6 +14,10 @@ export const colors = {
     black20: '#B7B7B7',
     black40: 'rgba(255, 255, 255, 0.4)',
     link: '#3651e6',
+    green10: '#4CAF50',
+    green20: '#388E3C',
+    red10: '#E64A19',
+    red20: '#FF5722',
   },
   app: {
     SCREEN_BACKGROUND: '#ECF0F4',

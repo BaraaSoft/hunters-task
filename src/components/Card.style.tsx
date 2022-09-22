@@ -15,26 +15,24 @@ import styled from 'styled-components';
 
 export const Styles = StyleSheet.create({
   containerStyle: {
-    height: 162,
+    height: 122,
     alignSelf: 'stretch',
     backgroundColor: colors.app.TRIP_CARD_BACKGROUND,
-    borderRadius: 8,
+    borderRadius: 4,
     shadowColor: colors.main.gray,
     shadowOffset: {width: 0, height: 0},
     shadowOpacity: 0.6,
     shadowRadius: 2,
     elevation: 3,
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
     marginBottom: 16,
+    position: 'relative',
   },
-  containerHighlightedStyle: {
-    backgroundColor: colors.app.TRIP_CARD_BACKGROUND_HIGHLIGHTED,
-  },
-  dateContainerStyle: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 26,
+  statusContainerStyle: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    paddingVertical: 8,
 
     marginRight: '30%',
   },
@@ -42,11 +40,12 @@ export const Styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '900',
     color: colors.app.TEXT,
-    marginBottom: 16,
+    marginBottom: 8,
   },
   textLGStyle: {
     fontSize: 16,
     fontWeight: '400',
+    textAlign: 'left',
     color: colors.app.TEXT,
   },
   textSMStyle: {
@@ -54,5 +53,12 @@ export const Styles = StyleSheet.create({
     fontWeight: '400',
     color: colors.app.TEXT,
     alignSelf: 'flex-end',
+  },
+  iconStyle: {
+    color: colors.main.green10,
+    alignSelf: 'flex-end',
+    position: 'absolute',
+    bottom: '5%',
+    right: '4%',
   },
 });
