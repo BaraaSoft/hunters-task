@@ -18,6 +18,9 @@ export const colors = {
     green20: '#388E3C',
     red10: '#E64A19',
     red20: '#FF5722',
+    yellow10: '#FFA000',
+    yellow20: '#FFC107',
+    teal: '#009688',
   },
   app: {
     SCREEN_BACKGROUND: '#ECF0F4',
