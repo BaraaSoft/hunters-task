@@ -1,4 +1,4 @@
 # hunters-task
-# To run first download the solution and run 
-npm install --legacy-peer-deps
-cd ios && pod install
+# To run first download the solution & run: 
+## npm install --legacy-peer-deps
+## cd ios && pod install
