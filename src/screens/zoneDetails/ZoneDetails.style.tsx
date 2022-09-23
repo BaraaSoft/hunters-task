@@ -61,9 +61,9 @@ export const Styles = StyleSheet.create({
     alignSelf: 'stretch',
   },
   roundedButtonTextStyle: {
-    fontSize: 16,
+    fontSize: 18,
     color: colors.main.grey3,
-    fontWeight: '700',
+    fontWeight: '900',
     textAlign: 'center',
     elevation: 0,
     shadowOpacity: 0,

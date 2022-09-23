@@ -11,9 +11,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export const navigationOptions = ({navigation, route}: any) => {
   const {zoneId, zoneName} = route.params;
-
   return {
-    headerTitle: zoneName,
+    headerTitle: zoneName?.toUpperCase(),
     headerShown: true,
     isVisible: false,
     headerLeft: () => (
@@ -68,7 +67,7 @@ const TripDetails = ({navigation, route}: any) => {
                   ? Styles.contentButtonActiveStyle
                   : Styles.roundedButtonTextStyle,
               ]}>
-              Running
+              {status.running ? 'ON' : 'OFF'}
             </Text>
           </View>
         </View>
