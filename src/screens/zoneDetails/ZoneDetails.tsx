@@ -2,11 +2,12 @@ import React, {useEffect, useMemo} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {goTo, navigate} from '../../services/navigationService';
 import {APP_SCREENS} from '../screens';
-import {Container, Title, Link} from './ZoneDetails.style';
+import {Container, Title, Link, Styles} from './ZoneDetails.style';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../store';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {colors} from '../../common/colors';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export const navigationOptions = ({navigation, route}: any) => {
   const {zoneId, zoneName} = route.params;
@@ -31,7 +32,7 @@ const TripDetails = ({navigation, route}: any) => {
   const {data, isError, loading} = useSelector(
     (state: RootState) => state.zones,
   );
-  const {destinations} = useMemo(() => {
+  const {name, icon, id, status} = useMemo(() => {
     const {zoneId, zoneName} = route.params;
     return data.filter((x: any) => x.id == zoneId)[0];
   }, [route.params?.zoneId]);
@@ -39,10 +40,39 @@ const TripDetails = ({navigation, route}: any) => {
   return (
     <Container>
       <View>
-        {destinations.map((name: string) => (
-          <Title key={name}>{name}</Title>
-        ))}
+        <Title>{name}</Title>
       </View>
+      <TouchableOpacity>
+        <View
+          style={[
+            Styles.roundedButtonContainerStyle,
+            status.running
+              ? Styles.containerButtonActiveStyle
+              : Styles.containerButtonInctiveStyle,
+          ]}>
+          <View style={Styles.roundedButtonStyle}>
+            <FontAwesome
+              style={[
+                Styles.roundedButtonIconStyle,
+                status.running
+                  ? Styles.contentButtonActiveStyle
+                  : Styles.roundedButtonIconStyle,
+              ]}
+              name="power-off"
+              size={68}
+            />
+            <Text
+              style={[
+                Styles.roundedButtonTextStyle,
+                status.running
+                  ? Styles.contentButtonActiveStyle
+                  : Styles.roundedButtonTextStyle,
+              ]}>
+              Running
+            </Text>
+          </View>
+        </View>
+      </TouchableOpacity>
     </Container>
   );
 };
