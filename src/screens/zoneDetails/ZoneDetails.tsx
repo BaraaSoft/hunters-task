@@ -3,11 +3,12 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {goTo, navigate} from '../../services/navigationService';
 import {APP_SCREENS} from '../screens';
 import {Container, Title, Link, Styles} from './ZoneDetails.style';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {RootState} from '../../store';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {colors} from '../../common/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {toggleZoneStatus} from '../../store/zonesSlice.slice';
 
 export const navigationOptions = ({navigation, route}: any) => {
   const {zoneId, zoneName} = route.params;
@@ -31,17 +32,22 @@ const TripDetails = ({navigation, route}: any) => {
   const {data, isError, loading} = useSelector(
     (state: RootState) => state.zones,
   );
+  const dispatch = useDispatch();
   const {name, icon, id, status} = useMemo(() => {
     const {zoneId, zoneName} = route.params;
     return data.filter((x: any) => x.id == zoneId)[0];
-  }, [route.params?.zoneId]);
+  }, [route.params?.zoneId, data]);
+
+  const handleOnPress = () => {
+    dispatch(toggleZoneStatus({id}));
+  };
 
   return (
     <Container>
       <View>
         <Title>{name}</Title>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleOnPress}>
         <View
           style={[
             Styles.roundedButtonContainerStyle,

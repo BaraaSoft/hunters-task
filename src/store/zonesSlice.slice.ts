@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import _ from 'lodash';
 import {Zone} from '../types/models';
 
@@ -36,7 +36,14 @@ export const getAllZones = createAsyncThunk(
 const ZonesSlice = createSlice({
   name: 'Zones',
   initialState,
-  reducers: {},
+  reducers: {
+    toggleZoneStatus: (state, action: PayloadAction<{id: number}>) => {
+      for (let item of state.data) {
+        if (item.id == action?.payload?.id)
+          item.status.running = !item.status.running;
+      }
+    },
+  },
   extraReducers: builder => {
     builder.addCase(getAllZones.pending, (state, action) => {
       state.loading = true;
@@ -55,3 +62,4 @@ const ZonesSlice = createSlice({
 
 // export const {} = TripsSlice.actions;
 export default ZonesSlice.reducer;
+export const {toggleZoneStatus} = ZonesSlice.actions;
